@@ -114,7 +114,7 @@ export default function Home() {
                 <input
                   type="text"
                   className="url-input"
-                  placeholder="https://www.facebook.com/watch?v=..."
+                  placeholder="https://www.facebook.com/reel/... atau /watch?v=..."
                   value={url}
                   onChange={(e) => { setUrl(e.target.value); setError(''); }}
                   onKeyDown={handleKeyDown}
@@ -180,13 +180,17 @@ export default function Home() {
                       position: 'absolute', inset: 0,
                       background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6))'
                     }}></div>
-                    <div style={{
-                      position: 'absolute', bottom: 16, left: 16, right: 16
-                    }}>
+                    <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16, display: 'flex', gap: 8 }}>
                       <span style={{
                         background: 'rgba(16,185,129,0.9)', borderRadius: 6,
                         color: 'white', fontSize: 12, fontWeight: 700, padding: '4px 10px'
                       }}>✓ Video Ditemukan</span>
+                      {result.type === 'reel' && (
+                        <span style={{
+                          background: 'rgba(139,92,246,0.9)', borderRadius: 6,
+                          color: 'white', fontSize: 12, fontWeight: 700, padding: '4px 10px'
+                        }}>🎬 Reel</span>
+                      )}
                     </div>
                   </div>
                 )}
@@ -283,7 +287,7 @@ export default function Home() {
               </h3>
               <ul style={{ color: 'rgba(255,255,255,0.55)', fontSize: 14, lineHeight: 2.1, paddingLeft: 0, listStyle: 'none' }}>
                 <li>→ Pastikan video yang ingin didownload bersifat <strong style={{ color: 'rgba(255,255,255,0.8)' }}>Publik</strong>, bukan privat atau teman saja.</li>
-                <li>→ URL bisa dari <strong style={{ color: 'rgba(255,255,255,0.8)' }}>facebook.com/watch</strong>, <strong style={{ color: 'rgba(255,255,255,0.8)' }}>fb.watch</strong>, atau reel Facebook.</li>
+                <li>→ URL bisa dari <strong style={{ color: 'rgba(255,255,255,0.8)' }}>facebook.com/watch</strong>, <strong style={{ color: 'rgba(255,255,255,0.8)' }}>facebook.com/reel/</strong>, <strong style={{ color: 'rgba(255,255,255,0.8)' }}>fb.watch</strong>, atau link video biasa.</li>
                 <li>→ Pilih <strong style={{ color: 'rgba(255,255,255,0.8)' }}>HD</strong> untuk kualitas terbaik, <strong style={{ color: 'rgba(255,255,255,0.8)' }}>SD</strong> untuk ukuran file lebih kecil.</li>
                 <li>→ Jika link tidak berfungsi, coba klik kanan video → <em>Salin Alamat Tautan</em>.</li>
                 <li>→ Di iPhone/iPad, tahan tombol Download dan pilih <em>Download Tertaut</em>.</li>
